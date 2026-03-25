@@ -1,2 +1,0 @@
-# Weblove.com
-IT CONTAINS CODES OF LOVE 
