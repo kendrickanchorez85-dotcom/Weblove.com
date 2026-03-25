@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 | Private Access</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;700&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+</head>
+<body class="pro-dark-bg">
+    <div class="nebula-overlay"></div>
+
+    <div class="hero-container">
+        <div class="badge">Encrypted Message for Lindsay</div>
+        <div class="hearts-container" id="heartsContainer"></div>
+        <h1 class="glitch-title">Hi <span>Baby.</span></h1>
+        
+        <div class="portal-wrapper" onclick="unlockExperience()">
+            <div class="glow-core1">✉️</div>
+            <div class="glow-core">💜</div>
+            <div class="pulse-aura"></div>
+        </div>
+        
+        
+        <br>
+        <br>
+        <br>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        
+
+        <p class="hint-text">Tap the heart to enter the vault</p>
+    </div>
+
+    <script>
+        // Modern Heart Trail Logic
+        document.addEventListener('mousemove', (e) => {
+            const heart = document.createElement('div');
+            heart.innerHTML = '💜';
+            heart.className = 'cursor-heart';
+            heart.style.left = e.pageX + 'px';
+            heart.style.top = e.pageY + 'px';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 800);
+        });
+        // Function para gumawa ng random floating hearts sa gilid
+        function createFloatingHeart() {
+            const container = document.getElementById('heartsContainer');
+            const heart = document.createElement('div');
+    
+            heart.innerHTML = '💜';
+            heart.className = 'floating-heart';
+    
+    
+            const isLeft = Math.random() > 0.5;
+            const randomX = isLeft ? Math.random() * 20 : 80 + Math.random() * 20;
+    
+            heart.style.left = randomX + '%';
+    
+   
+            const size = Math.random() * 20 + 10;
+            const duration = Math.random() * 4 + 4;
+    
+            heart.style.fontSize = size + 'px';
+            heart.style.animationDuration = duration + 's';
+            heart.style.opacity = Math.random() * 0.5 + 0.2;
+
+            container.appendChild(heart);
+
+    // Alisin pagkatapos ng animation para hindi bumagal ang browser
+            setTimeout(() => {
+            heart.remove();
+    },      duration * 1000);
+}
+    setInterval(createFloatingHeart, 500);
+        
+
+        function unlockExperience() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = '1s';
+            setTimeout(() => window.location.href = 'MainLetter.html', 1000);
+        }
+    </script>
+</body>
+</html>

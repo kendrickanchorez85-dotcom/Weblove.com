@@ -1,0 +1,282 @@
+:root {
+    --deep: #0a0a0c;
+    --accent: #8e44ad;
+    --soft: #a29bfe;
+    --glass: rgba(255, 255, 255, 0.03);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+
+.pro-dark-bg {
+    background: var(--deep);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    overflow: hidden;
+}
+
+.nebula-overlay {
+    position: absolute;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(142, 68, 173, 0.15), transparent);
+}
+
+.hero-container { z-index: 10; text-align: center; }
+
+.badge {
+    color: var(--soft);
+    letter-spacing: 5px;
+    font-size: 10px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.glitch-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.glitch-title span { color: var(--soft); font-style: italic; }
+
+.portal-wrapper {
+    position: relative;
+    width: 150px; height: 150px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+.glow-core1 {
+    font-size: 400px;
+    right:210px;
+    bottom: 180px;
+    z-index: 5;
+    position: relative;
+    text-align: center;
+    margin: auto;
+    filter: drop-shadow(0 0 30px var(--accent));
+    transition: 0.3s;
+    color:rgba(255, 255, 255, 0.671);
+    
+}
+    
+.glow-core {
+    font-size: 180px;
+    bottom:560px;
+    right:65px;
+    z-index: 5;
+    position: relative;
+    text-align: center;
+    margin: auto;
+    filter: drop-shadow(0 0 30px var(--accent));
+    transition: 0.4s;
+    color:rgba(255, 255, 255, 0.767);
+    
+    
+}
+
+.glow-core:hover { transform: scale(1.2); }
+
+.hint-text{
+    color:#8e44ad;
+    text-align: center;
+    
+  
+
+}
+
+.pulse-aura {
+    position: absolute;
+    top: 50%; left: 50%; right: 30%; bottom:80%;
+    transform: translate(-50%, -50%);
+    width: 400%; height: 350%;
+    background: var(--accent);
+    border-radius: 400%;
+    animation: pulse 1.67s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.8; }
+    100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+}
+
+/* PAGE 2: BENTO THEME */
+.pro-light-bg {
+    background: blueviolet;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    width: 100%;
+    max-width: 450px;
+}
+
+.bento-item {
+    background: white;
+    border-radius: 30px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.02);
+}
+
+.header-card h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-top: 10px; }
+.timestamp { font-size: 12px; color: var(--soft); font-weight: 700; }
+
+.main-content { line-height: 1.8; color: #444; }
+.highlight { font-weight: 700; color: var(--accent); }
+
+.next-btn {
+    width: 100%;
+    padding: 20px;
+    border-radius: 20px;
+    border: none;
+    background: var(--deep);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* CURSOR PARTICLES */
+.cursor-heart {
+    position: absolute;
+    pointer-events: none;
+    font-size: 15px;
+    animation: fadeUp 0.8s forwards;
+    z-index: 100;
+}
+
+@keyframes fadeUp {
+    to { transform: translateY(-50px) scale(0); opacity: 0; }
+}
+/* --- POLAROID SYSTEM 2026 --- */
+/* --- POLAROID FLIP SYSTEM --- */
+.polaroid-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 50px 20px;
+    perspective: 1000px; 
+}
+
+.polaroid-card {
+    width: 280px;
+    height: 350px;
+    cursor: pointer;
+    
+}
+
+.polaroid-inner-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    
+}
+
+/* Trigger ng flip */
+.polaroid-card.is-flipped .polaroid-inner-wrapper {
+    transform: rotateY(180deg);
+    
+}
+
+.polaroid-front, .polaroid-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Tinatago yung side na nakatalikod */
+    background: rgba(230, 130, 255, 0.712);
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.polaroid-front img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border: 1px solid #d37ace;
+}
+
+.polaroid-back {
+    transform: rotateY(180deg); /* Nakatalikod na agad ito sa simula */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(229, 124, 255, 0.712); /* Paper-like color */
+    padding: 25px;
+}
+
+.caption, .message-content h3, .message-content p, .sign {
+    font-family: 'Reenie Beanie', cursive;
+    text-align: center;
+    color: #333;
+}
+
+.caption { font-size: 2rem; margin-top: 15px; }
+.message-content h3 { font-size: 1.8rem; margin-bottom: 10px; }
+.message-content p { font-size: 1.3rem; line-height: 1.2; }
+.sign { display: block; margin-top: 15px; font-weight: bold; font-size: 1.4rem; }
+
+/* Scattered Tilt for realism */
+.polaroid-card:nth-child(even) { transform: rotate(2deg); }
+.polaroid-card:nth-child(odd) { transform: rotate(-2deg); }
+
+.polaroid-card:hover {
+    z-index: 10;
+    transform: scale(1.05) rotate(0deg);
+}
+/* Container para sa floating hearts */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Para hindi ma-block ang pag-click sa heart sa gitna */
+    z-index: 1; /* Sa likod ng hero-container pero sa harap ng nebula */
+    overflow: hidden;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -50px;
+    color: var(--soft);
+    font-size: 20px;
+    opacity: 0.6;
+    filter: drop-shadow(0 0 10px var(--accent));
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}

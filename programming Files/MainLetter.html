@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Letter</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;500;700&family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
+</head>
+<body class="pro-light-bg">
+    
+    <audio autoplay loop>
+        <source src="audio/Palayo.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="bento-grid">
+        <div class="bento-item header-card">
+            <span class="timestamp">03.16.2026</span>
+            <h2>Dearest baby,</h2>
+        </div>
+
+        <div class="bento-item main-content">
+            <p>I don’t even know where to start because there are so many things I want to say to you.</p>
+            <p>But one thing I’m sure of is this: <span class="highlight">I’m really grateful that I have you.</span></p>
+            <p>Kahit simpleng chat mo lang, it changes my mood completely. Thinking about you makes everything feel okay again. 💜</p>
+        </div>
+
+        <div class="bento-item button-card">
+            <button class="next-btn" onclick="window.location.href='PhotoOfHer.html'">
+                <span>View Memories</span>
+                <i class="arrow">→</i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Modern Heart Trail Logic
+        document.addEventListener('mousemove', (e) => {
+            const heart = document.createElement('div');
+            heart.innerHTML = '💜';
+            heart.className = 'cursor-heart';
+            heart.style.left = e.pageX + 'px';
+            heart.style.top = e.pageY + 'px';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 800);
+        });
+        // Function para gumawa ng random floating hearts sa gilid
+        function createFloatingHeart() {
+            const container = document.getElementById('heartsContainer');
+            const heart = document.createElement('div');
+    
+            heart.innerHTML = '💜';
+            heart.className = 'floating-heart';
+    
+    
+            const isLeft = Math.random() > 0.5;
+            const randomX = isLeft ? Math.random() * 20 : 80 + Math.random() * 20;
+    
+            heart.style.left = randomX + '%';
+    
+   
+            const size = Math.random() * 20 + 10;
+            const duration = Math.random() * 4 + 4;
+    
+            heart.style.fontSize = size + 'px';
+            heart.style.animationDuration = duration + 's';
+            heart.style.opacity = Math.random() * 0.5 + 0.2;
+
+            container.appendChild(heart);
+
+    // Alisin pagkatapos ng animation para hindi bumagal ang browser
+            setTimeout(() => {
+            heart.remove();
+    },      duration * 1000);
+}
+    setInterval(createFloatingHeart, 500);
+        
+
+        function unlockExperience() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = '1s';
+            setTimeout(() => window.location.href = 'MainLetter.html', 1000);
+        }
+    </script>
+
+    
+</body>
+</html>
